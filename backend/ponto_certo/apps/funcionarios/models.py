@@ -1,6 +1,7 @@
+from django.db import models
+
 from backend.ponto_certo.apps.core.models import TimeStampedModel
 from backend.ponto_certo.apps.empresas.models import Empresa
-from django.db import models
 
 
 class Funcionarios(models.Model, TimeStampedModel):
@@ -15,5 +16,5 @@ class Funcionarios(models.Model, TimeStampedModel):
 
     class Meta:
         ordering = "-nome"
-        verbose_name = 'Funcionário'
-        verbose_name_plural = 'Funcionários'
+        verbose_name = "Funcionário"
+        verbose_name_plural = "Funcionários"

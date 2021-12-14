@@ -1,7 +1,8 @@
+from django.db import models
+
 from backend.ponto_certo.apps.core.models import TimeStampedModel
 from backend.ponto_certo.apps.funcionarios.models import Funcionarios
 from backend.ponto_certo.apps.registros.models import RegistoHorario
-from django.db import models
 
 
 class CartaoPontoModelo(models.Model, TimeStampedModel):
@@ -13,9 +14,9 @@ class CartaoPontoModelo(models.Model, TimeStampedModel):
     hora_saida = models.TimeField()
 
     def __str__(self):
-        return f'{self.funcionario}'
+        return f"{self.funcionario}"
 
     class Meta:
-        ordering = '-funcionario'
-        verbose_name = 'Mapa'
-        verbose_name_plural = 'Mapas'
+        ordering = "-funcionario"
+        verbose_name = "Mapa"
+        verbose_name_plural = "Mapas"
