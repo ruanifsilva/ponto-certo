@@ -6,4 +6,4 @@ class Empresa(models.Model):
     cnpj = models.IntegerField(max_length=14, blank=False)
 
     def __str__(self):
-        return self.nome_empresa
+        return f"{self.nome_empresa}"
