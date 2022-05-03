@@ -1,13 +1,13 @@
 from django.db import models
 
-from backend.ponto_certo.apps.core.models import TimeStampedModel
-from backend.ponto_certo.apps.empresas.models import Empresa
+from apps.core.models import TimeStampedModel
+from apps.empresas.models import Empresa
 
 
-class Funcionarios(models.Model, TimeStampedModel):
+class Funcionarios(TimeStampedModel, models.Model):
     empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
     nome = models.CharField(max_length=200)
-    cpf = models.IntegerField(max_length=11, blank=False)
+    cpf = models.IntegerField(blank=False)
     funcao = models.CharField(max_length=200)
     data_admissao = models.DateTimeField()
 
@@ -15,6 +15,6 @@ class Funcionarios(models.Model, TimeStampedModel):
         return f"{self.nome}"
 
     class Meta:
-        ordering = "-nome"
+        ordering = ["-nome"]
         verbose_name = "Funcionário"
         verbose_name_plural = "Funcionários"

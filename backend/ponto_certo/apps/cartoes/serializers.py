@@ -1,6 +1,5 @@
-from rest_framework import serializers
-
 from backend.ponto_certo.apps.cartoes.models import CartaoPontoModelo
+from rest_framework import serializers
 
 
 class CartaoPontoModeloSerializer(serializers.ModelSerializer):

@@ -1,10 +1,10 @@
 from django.db import models
 
-from backend.ponto_certo.apps.core.models import TimeStampedModel
-from backend.ponto_certo.apps.funcionarios.models import Funcionarios
+from apps.core.models import TimeStampedModel
+from apps.funcionarios.models import Funcionarios
 
 
-class RegistoHorario(models.Model, TimeStampedModel):
+class RegistoHorario(TimeStampedModel, models.Model):
     funcionario = models.ForeignKey(Funcionarios, on_delete=models.CASCADE)
     mes_de_trabalho = models.DateTimeField()
     hora_entrada = models.TimeField()
@@ -14,6 +14,6 @@ class RegistoHorario(models.Model, TimeStampedModel):
         return f"Cartão referente ao funcionário {self.funcionario}"
 
     class Meta:
-        ordering = "-funcionario"
+        ordering = ["-funcionario"]
         verbose_name = "Registro"
         verbose_name_plural = "Registros"

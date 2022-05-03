@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from backend.ponto_certo.apps.empresas.models import Empresa
+from apps.empresas.models import Empresa
 
 
 class EmpresaSerializer(serializers.ModelSerializer):

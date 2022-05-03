@@ -1,9 +1,8 @@
-from rest_framework import serializers
-
 from backend.ponto_certo.apps.cartoes.serializers import CartaoPontoModeloSerializer
 from backend.ponto_certo.apps.empresas.serializers import EmpresaSerializer
 from backend.ponto_certo.apps.funcionarios.models import Funcionarios
 from backend.ponto_certo.apps.registros.serializers import RegistroHorarioSerializer
+from rest_framework import serializers
 
 
 class FuncionariosSerializer(serializers.ModelSerializer):
