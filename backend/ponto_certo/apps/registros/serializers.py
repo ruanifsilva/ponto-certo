@@ -1,5 +1,6 @@
-from backend.ponto_certo.apps.registros.models import RegistoHorario
 from rest_framework import serializers
+
+from apps.registros.models import RegistoHorario
 
 
 class RegistroHorarioSerializer(serializers.ModelSerializer):

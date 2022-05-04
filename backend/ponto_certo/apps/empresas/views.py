@@ -1,14 +1,24 @@
-from django.shortcuts import render
-from django.views import generic
-from rest_framework import viewsets
+from django.http import Http404
+from rest_framework import status, viewsets
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from apps.empresas.models import Empresa
 from apps.empresas.serializers import EmpresaSerializer
 
 
-class EmpresaList(generic.ListView):
-    model = Empresa
-    context_object_name = "Lista_empresas"
+class EmpresaList(APIView):
+    def get(self, request, format=None):
+        empresa = Empresa.objects.all()
+        serializer = EmpresaSerializer(empresa, many=False)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = EmpresaSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class EmpresaViewSet(viewsets.ModelViewSet):
